@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
 	def new
 		@post = Post.new
-		
+
 	end
 
 	def show
@@ -11,9 +11,13 @@ class PostsController < ApplicationController
 	end
 
 	def create
-		@post = current_user.posts.build(post_params)
+		@post = current_user.posts.new(post_params)
 		if @post.save
-			redirect_to current_user
+			# byebug
+			# render json: {
+			# 	post_data: render_to_string(@post)
+			# }
+		redirect_to root_url
 		else
 			render "static_pages/home"
 		end
