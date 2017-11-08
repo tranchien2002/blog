@@ -1,25 +1,26 @@
  <%= form_for(@comment) do |f| %>
- 	<div class="field">
- 		<%= f.text_area :content, class: "form-control" %>
- 		<%= hidden_field_tag :post_id, @post.id %> 
- 	</div>
- 	<%= f.submit "Reply", class: "btn btn-primary",id: "submit" %>
+  <div class="field">
+    <%= f.text_area :content, class: "form-control" %>
+    <%= hidden_field_tag :post_id, @post.id %>
+  </div>
+  <%= f.submit "Reply", class: "btn btn-primary",id: "submit" %>
  <% end %>
 
-<!--  <script type="text/javascript">
- 	$("#submit").on("click", function(e){
- 		e.preventDefault();
- 		var content = $("#comment_content").val();
- 		if(content){
- 			$.ajax({
- 				url: "/comments",
- 				type: "post",
- 				dataType: "json",
- 				data: {comment: {content: content}},
- 			})
- 			.success(function(res){
- 				console.log(res);
- 			})
- 		}
- 	})
- </script> -->
+ <script type="text/javascript">
+  $("#submit").on("click", function(e){
+    e.preventDefault();
+    var content = $("#comment_content").val();
+    if(content){
+      $.ajax({
+        url: "/comments",
+        type: "post",
+        dataType: "json",
+        data: {comment: {content: content, post_id: $('#post_id').val()}},
+        success: function(res){
+         $(".comments").prepend(res.comment_data);
+         $("#comment_content").val("");
+        }
+      })
+    }
+  })
+ </script>

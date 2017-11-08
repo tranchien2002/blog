@@ -9,3 +9,21 @@
   </div>
   <%= f.submit "Post", class: "btn btn-primary" %>
 <% end %>
+<script type="text/javascript">
+  $(".btn-primary").on("click",function(e){
+    e.preventDefault;
+    title = $("#post_title").val();
+    content = $("#post_content").val();
+    if(title && content){
+      $.ajax({
+        url: "/posts",
+        type: "post",
+        dataType: "json",
+        data: {post: {content: content, title: title}},
+        success: function(res){
+         $(".posts").prepend(res.post_data);
+        }
+      })
+    }
+  })
+</script>
