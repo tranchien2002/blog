@@ -6,5 +6,6 @@ class CreateTaggings < ActiveRecord::Migration[5.1]
 
       t.timestamps
     end
+    add_index :taggings, [:post_id, :tag_id]
   end
 end

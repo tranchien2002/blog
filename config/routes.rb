@@ -8,10 +8,10 @@ Rails.application.routes.draw do
       get :following, :followers
     end
   end
-  resources :posts,			only: [:show, :create, :destroy]
+  resources :posts,			only: [:show, :create, :destroy, :index]
   # resources :posts do
   	resources :comments,	only: [:create, :destroy]
   # end	
   resources :relationships,       only: [:create, :destroy]
-
+  get 'tags/:tag', to: 'posts#index', as: :tag
 end

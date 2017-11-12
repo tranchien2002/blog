@@ -7,9 +7,13 @@
   <div class="field">
     <%= f.text_area :content, placeholder: "Compose new post...",class: "form-control" %>
   </div>
+  <div class="field">
+    <%= f.label :tag_list, "Tag: " %><br>
+    <%= f.text_field :tag_list %>
+  </div>
   <%= f.submit "Post", class: "btn btn-primary" %>
 <% end %>
-<script type="text/javascript">
+<!-- <script type="text/javascript">
   $(".btn-primary").on("click",function(e){
     e.preventDefault;
     title = $("#post_title").val();
@@ -26,4 +30,4 @@
       })
     }
   })
-</script>
+</script> -->

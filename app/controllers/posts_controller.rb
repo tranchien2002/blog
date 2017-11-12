@@ -24,9 +24,18 @@ class PostsController < ApplicationController
 
 	end
 
+	def index
+		if params[:tag]
+      		@tag = Tag.find_by(name: params[:tag])
+      		@post = Post.tagged_with(params[:tag]).paginate(page: params[:page], per_page: 20)
+    	else
+      		@post = Post.all.paginate(page: params[:page], per_page: 20)
+    	end
+	end
+
 	private
 
 		def post_params
-			params.require(:post).permit(:title,:content)
+			params.require(:post).permit(:title,:content,:tag_list)
 		end
 end

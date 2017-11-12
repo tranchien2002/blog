@@ -1,4 +1,5 @@
 <h1><%= @post.content %></h1>
+<p>Tags: <%= 	@post.tags.map(&:name).map {|t| link_to t, tag_path(t)}.join(",").html_safe  %></p>
 <div class="col-md-8">
     <% if @post.comments.any? %>
       <ul class="comments">
