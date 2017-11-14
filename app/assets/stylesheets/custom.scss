@@ -230,3 +230,18 @@ input {
 .timestamp{
   font-weight: normal;
 }
+
+.like:hover {
+  color: dodgerblue;
+  text-decoration: none;
+}
+
+.like_form  {
+  background: none;
+  width: 40px;
+}
+
+.like_form:hover  {
+  color: dodgerblue;
+  text-decoration: none;
+}
