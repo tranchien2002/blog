@@ -28,9 +28,11 @@ class PostsController < ApplicationController
 		if params[:tag]
       		@tag = Tag.find_by(name: params[:tag])
       		@post = Post.tagged_with(params[:tag]).paginate(page: params[:page], per_page: 20)
-    	else
+		elsif params[:search]
+					@post = Post.search(params[:search]).order("created_at DESC").paginate(page: params[:page], per_page: 20)
+		else
       		@post = Post.all.paginate(page: params[:page], per_page: 20)
-    	end
+		end
 	end
 
 	private

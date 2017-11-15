@@ -8,5 +8,7 @@
       <%= render @post %>
     </ol>
     <%= will_paginate @post %>
+   <% else%>
+    <h1>Sorry, we cant find anything like this</h1>
   <% end %>
 </div>

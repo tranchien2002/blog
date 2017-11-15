@@ -23,6 +23,6 @@ Rails.application.routes.draw do
   end
   resources :relationships,       only: [:create, :destroy]
   get 'tags/:tag', to: 'posts#index', as: :tag
-
+  get "posts/:search", to: "posts#index", as: :search
 
 end

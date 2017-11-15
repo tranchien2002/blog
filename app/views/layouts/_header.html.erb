@@ -9,6 +9,26 @@
           <%= link_to "Blog",root_path,class: "navbar-brand" %>
         </div>
 
+        <div class="col-md-4">
+          <div class="card my-4">
+            <br>
+          <div class="input-group">
+
+            <!--<input type="text" class="form-control" placeholder="Search for...">-->
+            <!--<span class="input-group-btn">-->
+              <!--<input type="button" class="btn btn-secondary" type="button" value="Go">Go!</input>-->
+            <!--</span>-->
+
+                    <%= form_tag(posts_path,method: :get, id: "form-control") do %>
+                    <%= text_field_tag :search, params[:search], placeholder: "Search Posts" %>
+                    <span class="input-group-btn">
+                    <%= submit_tag "Search" ,class:"btn btn-secondary"%>
+                    </span>
+
+            <%end%>
+          </div>
+        </div>
+        </div>
         <div class="collapse navbar-collapse" id="myNavbar">
           <ul class="nav navbar-nav navbar-right">
               <li><%= link_to "Home", root_path %></li>

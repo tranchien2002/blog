@@ -7,7 +7,7 @@ body, html {
   height: 100%;
 }
 body {
-  padding-top: 50px;
+  padding-top:100px;
 }
 body, h1, h2, h3, h4, h5, h6 {
   font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -15,6 +15,7 @@ body, h1, h2, h3, h4, h5, h6 {
 }
 h1{
   text-align: center;
+  word-wrap: break-word;
 }
 
 .intro-header {
@@ -230,8 +231,14 @@ input {
 .timestamp{
   font-weight: normal;
 }
-
-.like:hover {
+.like{
+  color :cornflowerblue;
+  display: block;
+}
+.likes{
+  color: deepskyblue;
+}
+.likes:hover {
   color: dodgerblue;
   text-decoration: none;
 }
@@ -239,9 +246,25 @@ input {
 .like_form  {
   background: none;
   width: 40px;
+  border-style: none;
 }
 
 .like_form:hover  {
   color: dodgerblue;
   text-decoration: none;
+}
+
+.micropost_form{
+  margin: auto;
+  padding: 10px;
+  width: 50%;
+}
+
+span.content{
+  direction: rtl;
+  word-wrap: break-word;
+  width: 250px;
+  display:block;
+  font-size:12px;
+  font-family: Sans-serif;
 }

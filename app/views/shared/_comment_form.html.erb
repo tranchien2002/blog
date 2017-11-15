@@ -1,10 +1,15 @@
- <%= form_for(@comment) do |f| %>
-  <div class="field">
-    <%= f.text_area :content, class: "form-control" %>
+
+<%= form_for(@comment) do |f| %>
+  <div class="form-group">
+    <%= f.text_area :content, class: "form-control", rows: "3"%>
     <%= hidden_field_tag :post_id, @post.id %>
   </div>
+    <div class="col-xs-2">
   <%= f.submit "Reply", class: "btn btn-primary",id: "submit" %>
+    </div>
  <% end %>
+
+
 
  <script type="text/javascript">
   $("#submit").on("click", function(e){
